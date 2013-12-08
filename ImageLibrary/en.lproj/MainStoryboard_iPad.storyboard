@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="4">
+            <objects>
+                <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TnN-bR-eyL"/>
+                        <viewControllerLayoutGuide type="bottom" id="dmH-kH-CJz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="suburbia.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rnf-l5-mfc">
+                                <rect key="frame" x="20" y="37" width="728" height="466"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="302" id="amh-zK-OBt"/>
+                                    <constraint firstAttribute="width" constant="455" id="zHo-MS-HBu"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="url.png" translatesAutoresizingMaskIntoConstraints="NO" id="DoE-ty-ZW3">
+                                <rect key="frame" x="20" y="525" width="728" height="479"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="302" id="j0P-VH-9Do"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DoE-ty-ZW3" firstAttribute="top" secondItem="5" secondAttribute="top" constant="501" id="0bo-2x-9ok"/>
+                            <constraint firstItem="DoE-ty-ZW3" firstAttribute="trailing" secondItem="Rnf-l5-mfc" secondAttribute="trailing" id="KzD-Uv-awW"/>
+                            <constraint firstItem="DoE-ty-ZW3" firstAttribute="leading" secondItem="Rnf-l5-mfc" secondAttribute="leading" id="YuS-2A-bB4"/>
+                            <constraint firstItem="Rnf-l5-mfc" firstAttribute="top" secondItem="5" secondAttribute="top" constant="180" id="yMg-zx-KlE"/>
+                            <constraint firstItem="Rnf-l5-mfc" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="144" id="yca-Mk-taP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="DoE-ty-ZW3" id="oaF-j9-ggg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8" y="-272"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="suburbia.png" width="434" height="585"/>
+        <image name="url.png" width="259" height="194"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

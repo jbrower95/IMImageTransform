@@ -1,0 +1,89 @@
+//
+//  ViewController.m
+//  ImageLibrary
+//
+//  Created by Justin Brower on 10/23/13.
+//  Copyright (c) 2013 Justin Brower. All rights reserved.
+//
+
+#import "ViewController.h"
+
+@interface ViewController ()
+
+@end
+
+@implementation ViewController
+@synthesize imageView;
+- (void)viewDidLoad
+{
+    UIImage *output = [self modifyPixels:[UIImage imageNamed:@"suburbia.png"]];
+    [self.imageView setImage:output];
+    [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+}
+
+-(UIImage*)modifyPixels:(UIImage*)originalImage
+{
+    
+    unsigned char *rawData = [IMTransformAgent getPixelsfromImage:originalImage];
+    int width = [originalImage size].width;
+    int height = [originalImage size].height;
+    
+    // Take away the red pixel, assuming 32-bit RGBA
+    // for(int i = 0; i < width*height*4; i += 4)
+    // {
+        //NSLog(@" %ith iteration (%i / %i / %i / %i)", i, pixelData[i], pixelData[i+1], pixelData[i+2], pixelData[i+3]);
+      
+    /*   float output = (float)rawData[i]*.3 + (float)rawData[i+1]*.5 + (float)rawData[i+2]*.2;
+       float clip_freedom = 50;
+       //some clipping...
+       if ( output < clip_freedom)
+       {
+           output = 0;
+       }
+       else if (output > (255-clip_freedom))
+       {
+           output = 255;
+       }
+       
+       rawData[i]  = rawData[i+1] = rawData[i+2] =  (int)output;
+    */
+  // gray scale
+   
+    
+       /*
+       //default: .2, .1, .2
+       float noise_r = .2;
+       float noise_g = .1;
+       float noise_b = .2;
+       
+       rawData[i] = (float)((float)(rand()%255)*noise_r + (1.0-noise_r)*(float)rawData[i])    ;
+       rawData[i+1] = (float) ((float)(rand()%255)*noise_g + (1.0-noise_g)*(float)rawData[i+1])   ;
+       rawData[i+2] = (float)((rand()%255)*noise_b + (1.0-noise_b)*(float)rawData[i+2] )   ;
+       
+       //creates a subtle, romantic blurring
+     */
+      
+       // creates a PURPLE filter :D
+      /* 
+       */
+       /* Partial gray scale*/
+      
+      /* */
+    //[JBTransformAgent applyMoodBlurToPixels:rawData noiseRed:.2 green:.1 blue:.2 pictureWidth:width height:height];
+    [IMTransformAgent applyMoodBlurToPixels:rawData noiseRed:.4 green:.3 blue:.4 pictureWidth:width height:height];
+    [IMTransformAgent applyGrayscaleToPixels:rawData grayScaleAmount:1 pictureWidth:width height:height];
+    [IMTransformAgent applyRGBFilterToPixels:rawData red:(255.0/255.0) green:0 blue:0 amount:1 width:width height:height];
+ //  }
+    UIImage *a = [IMTransformAgent reformPictureFromBytes:rawData original:originalImage];
+    free(rawData);
+    return a;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+@end
