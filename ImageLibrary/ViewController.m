@@ -29,9 +29,9 @@
     int width = [originalImage size].width;
     int height = [originalImage size].height;
     
-    [IMTransformAgent applyMoodBlurToPixels:rawData noiseRed:.2 green:.1 blue:.2 pictureWidth:width height:height];
-    [IMTransformAgent applyMoodBlurToPixels:rawData noiseRed:.4 green:.3 blue:.4 pictureWidth:width height:height];
-    [IMTransformAgent applyGrayscaleToPixels:rawData grayScaleAmount:1 pictureWidth:width height:height];
+    //[IMTransformAgent applyMoodBlurToPixels:rawData noiseRed:.2 green:.1 blue:.2 pictureWidth:width height:height];
+    //[IMTransformAgent applyMoodBlurToPixels:rawData noiseRed:.4 green:.3 blue:.4 pictureWidth:width height:height];
+    //[IMTransformAgent applyGrayscaleToPixels:rawData grayScaleAmount:1 pictureWidth:width height:height];
     [IMTransformAgent applyRGBFilterToPixels:rawData red:(255.0/255.0) green:0 blue:0 amount:1 width:width height:height];
 
     UIImage *a = [IMTransformAgent reformPictureFromBytes:rawData original:originalImage];

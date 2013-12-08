@@ -28,7 +28,7 @@
 }
 
 //filters an RGB color over the image
-+ (void)applyRGBFilterToPixels:(unsigned char *)pixels red:(int)redOfOne green:(int)greenOfOne blue:(int)blueOfOne amount:(float)outOfOne width:(int)width height:(int)height
++ (void)applyRGBFilterToPixels:(unsigned char *)pixels red:(float)redOfOne green:(float)greenOfOne blue:(float)blueOfOne amount:(float)outOfOne width:(int)width height:(int)height
 {
     unsigned char *rawData = pixels;
     
@@ -39,12 +39,9 @@
         b = rawData[i+1];
         c = rawData[i+2];
         
-        
-        
-        rawData[i] = rawData[i] + rawData[i]*redOfOne;
-        rawData[i+1] = rawData[i+1] + rawData[i+1]*greenOfOne;
-        rawData[i+2] = rawData[i+2] + rawData[i+2]*blueOfOne;
-        
+        rawData[i] = (rawData[i] + rawData[i]*redOfOne) / 2.0;
+        rawData[i+1] = (rawData[i+1] + rawData[i+1]*greenOfOne) / 2.0;
+        rawData[i+2] = (rawData[i+2] + rawData[i+2]*blueOfOne) / 2.0;
         
         if ( rawData[i]   > 255) rawData[i] = 255;
         if ( rawData[i]   < 0)   rawData[i] = 0;
