@@ -19,5 +19,5 @@ Then apply transforms to the data as you wish.
 
 At the end, read back the picture:
 
-UIImage *output = [IMTransformAgent reformPictureFromBytes:data original:a]
+	UIImage *output = [IMTransformAgent reformPictureFromBytes:data original:a]
 
